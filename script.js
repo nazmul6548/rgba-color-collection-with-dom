@@ -18,14 +18,21 @@ const updateColor = () => {
 }
 const copyColorCode = () => {
     const colorCode = document.getElementById('colorCode');
-    const inputTag = document.createComment('input');
+    const inputTag = document.createElement('input');
     document.body.appendChild(inputTag);
     inputTag.value = colorCode.innerText;
+
+
     inputTag.select();
-    document.execCommand("copy");
+    document.execCommand('copy');
     document.body.removeChild(inputTag);
+    alert('Copyed color code');
 
 }
-document.getElementById('copyButton')
-
-updateColor();
+document.getElementById('copyButton').addEventListener('click',() => {
+    copyColorCode();
+})
+function generateNewColorBtn() {
+    
+    updateColor();
+}
